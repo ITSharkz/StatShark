@@ -17,8 +17,9 @@
     <PackageTags>statistic, cpu, ram, memory, disk, usage</PackageTags>
     <PackageOutputPath>NugetPackage\</PackageOutputPath>
     <IncludeSymbols>False</IncludeSymbols>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

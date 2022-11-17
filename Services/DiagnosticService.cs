@@ -20,8 +20,8 @@ namespace StatShark.Services
         public StatsResponse Get()
         {
             StatsResponse response = new StatsResponse();
-            var ram = GetRamMetrics();
 
+            response.HostId = this._HostName;
             response.DateTime = DateTime.UtcNow.ToUniversalTime();
             response.Ram = GetRamMetrics();
             response.Cpu = GetCpuMetrics();
