@@ -5,6 +5,34 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>StatShark - CPU, Memory, and Disk measure</Title>
+    <Authors>Kamil Kostrzewski</Authors>
+    <Company>Itsharkz</Company>
+    <Description>You can easy get your System stats and manage it. </Description>
+    <PackageProjectUrl>https://github.com/ITSharkz/StatShark</PackageProjectUrl>
+    <PackageIcon>2628402.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/ITSharkz/StatShark</RepositoryUrl>
+    <PackageTags>statistic, cpu, ram, memory, disk, usage</PackageTags>
+    <PackageOutputPath>NugetPackage\</PackageOutputPath>
+    <IncludeSymbols>False</IncludeSymbols>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Users\kamil\Downloads\2628402.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
