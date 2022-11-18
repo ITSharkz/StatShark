@@ -76,7 +76,7 @@ namespace StatShark.Services
             output = process.StandardOutput.ReadToEnd();
             var cpu = output.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var metrics = new RawMetrics();
-            double percentage = double.Parse(cpu[7].Replace(",", "")) * 100;
+            double percentage = double.Parse(cpu[cpu.Length - 3].Replace(",", "")) * 100;
             metrics.Total = 100;
             metrics.Free = 100 - percentage;
             metrics.Used = percentage;
