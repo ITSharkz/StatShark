@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Formats.Asn1;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 
 namespace StatShark.Services
 {
@@ -10,11 +11,13 @@ namespace StatShark.Services
         public string _HostName = "default";
         public DiagnosticService()
         {
+            CheckCompatibility();
             //
         }
 
         public DiagnosticService(string HostName)
         {
+            CheckCompatibility();
             this._HostName = HostName;
         }
         public StatsResponse Get()
@@ -23,9 +26,34 @@ namespace StatShark.Services
 
             response.HostId = this._HostName;
             response.DateTime = DateTime.UtcNow.ToUniversalTime();
-            response.Ram = GetRamMetrics();
-            response.Cpu = GetCpuMetrics();
-            response.Disk = GetDiskMetrics();
+            try
+            {
+
+                response.Ram = GetRamMetrics();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("StatShark: " + e);
+            }
+            try
+            {
+
+                response.Cpu = GetCpuMetrics();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("StatShark: " + e);
+            }
+            try
+            {
+
+                response.Disk = GetDiskMetrics();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("StatShark: " + e);
+            }
+
             return response;
         }
         private RawMetrics GetDiskMetrics()
@@ -76,6 +104,15 @@ namespace StatShark.Services
             metrics.Free = double.Parse(memory[3]);
             metrics.Unit = "mb";
             return metrics;
+        }
+
+        private void CheckCompatibility()
+        {
+            if (!System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                throw new InvalidOperationException("It works only on Linux.");
+            }
+
         }
     }
 }

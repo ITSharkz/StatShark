@@ -8,9 +8,9 @@ namespace StatShark.Models
 {
     public class RawMetrics
     {
-        public double Total;
-        public double Used;
-        public double Free;
-        public string Unit;
+        public double Total { get; set; }
+        public double Used { get; set; }
+        public double Free { get; set; }
+        public string Unit { get; set; }
     }
 }
